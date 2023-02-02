@@ -1,35 +1,58 @@
 // ON LOAD
 
-const gridEl = document.getElementById("grid");
+const startButton = document.getElementById("play");
 
 play.addEventListener(
     "click",
     function () {
-        gridGenerator(gridEl);
+        const gridEl = document.getElementById("grid");
+        const difficultyEl = document.getElementById("difficulty");
+        const level = difficultyEl.value;
+        console.log(level);
+
+        gridGenerator(gridEl, level);
     }
 )
 
 
 // FUNCTIONS
 
-function gridGenerator(gridEL) {
+function gridGenerator(gridEL, level, i) {
 
-    const whiteList = [];
+    gridEL.innerHTML = "";
 
-    for (i = 0; i < 100; i++); {
-        whiteList.push(i + 1);
+    let squareNumber;
+
+    if (level == 1) {
+        squareNumber = 100;
+    }
+    else if (level == 2) {
+        squareNumber = 81;
+    }
+    else {
+        squareNumber = 49;
     }
 
-    console.log(whiteList);
-
-    for (i = 0; i < 100; i++) {
+    for (i = 0; i < squareNumber; i++) {
         const squareEl = document.createElement("div");
         squareEl.classList.add("square");
+        squareEl.innerHTML = i + 1;
+
+        if (level == 1) {
+            squareEl.classList.add("square");
+        }
+        else if (level == 2) {
+            squareEl.classList.add("square-med");
+        }
+        else {
+            squareEl.classList.add("square-big");
+        }
 
         squareEl.addEventListener(
             "click",
             function () {
                 this.classList.toggle("active");
+                console.log(this.innerHTML);
             }
         )
 

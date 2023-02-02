@@ -1,5 +1,5 @@
-header {
-    height: 10vh;
+li {
+    list-style: none;
 }
 
 main {
@@ -23,6 +23,29 @@ main {
     height: calc(100% / 10);
     cursor: crosshair;
     border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-med {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+    cursor: crosshair;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square-big {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+    cursor: crosshair;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .square.active {
@@ -31,4 +54,6 @@ main {
 
 footer {
     height: 10vh;
+    line-height: 10vh;
+    vertical-align: middle;
 }
